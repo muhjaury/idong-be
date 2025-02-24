@@ -1,7 +1,7 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { Siswa } from './siswa.entity';
 import { CreateSiswaDTO } from './dto/create- siswa.dto';
+import { Siswa } from './siswa.entity';
 
 @Injectable()
 export class SiswaService {

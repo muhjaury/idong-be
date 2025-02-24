@@ -1,6 +1,6 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { SiswaService } from './siswa.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateSiswaDTO } from './dto/create- siswa.dto';
+import { SiswaService } from './siswa.service';
 
 @Controller('api')
 export class SiswaController {
