@@ -7,14 +7,16 @@ export class SiswaController {
   constructor(private readonly siswaService: SiswaService) {}
 
   @Get('siswa')
-  findAll(): object {
-    return this.siswaService.findAll();
+  async findAll(): Promise<object> {
+    const init = await this.siswaService.findAll();
+    const data = { status: 'SUCCESS', data: init };
+    return data;
   }
 
   @Post('siswa/add')
-  create(@Body() dto: CreateSiswaDTO) {
-    this.siswaService.create(dto);
-    const data = { status: 'SUCCESS', data: dto };
+  async create(@Body() dto: CreateSiswaDTO) {
+    const init = await this.siswaService.create(dto);
+    const data = { status: 'SUCCESS', data: init };
     return data;
   }
 }
