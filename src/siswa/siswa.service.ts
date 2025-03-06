@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { CreateSiswaDTO } from './dto/create- siswa.dto';
+import { CreateSiswaDTO } from './dto/create-siswa.dto';
 import { Siswa } from './siswa.entity';
 
 @Injectable()
