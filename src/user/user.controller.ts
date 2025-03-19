@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 import { UserDTO, VerifyUserDTO } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
@@ -16,9 +16,27 @@ export class UserController {
     return { status: 'INVALID_CREDENTIAL' };
   }
 
-  @Post('user/registerAdmin')
-  async registerAdmin(@Body() dto: UserDTO) {
-    const init = await this.userService.registerAdmin(dto);
+  @Post('user/registerUser')
+  async registerUser(@Body() dto: UserDTO) {
+    const init = await this.userService.registerUser(dto);
+    if (init?.data) {
+      return { status: 'SUCCESS', data: init.data };
+    }
+    return { status: 'ERROR' };
+  }
+
+  @Get('user/fetchAdmin')
+  async findAllAdmin() {
+    const init = await this.userService.findAllAdmin();
+    if (init?.data) {
+      return { status: 'SUCCESS', data: init.data };
+    }
+    return { status: 'ERROR' };
+  }
+
+  @Post('user/deleteUser')
+  async deleteUser(@Body() id: number) {
+    const init = await this.userService.deleteUser(id);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }

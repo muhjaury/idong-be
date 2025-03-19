@@ -39,7 +39,7 @@ export class UserService {
     return null;
   }
 
-  async registerAdmin(dto: UserDTO) {
+  async registerUser(dto: UserDTO) {
     const data = extactData(dto);
     const name = decryptData(data.name);
     const email = decryptData(data.email);
@@ -55,6 +55,22 @@ export class UserService {
     const executeQuery = await this.userRepository.query(query);
     if (executeQuery !== undefined) {
       return { data: decryptData(data.name) };
+    }
+    return { data: null };
+  }
+
+  async findAllAdmin() {
+    const executeQuery = await this.userRepository.findBy({ role: 'ADMIN' });
+    if (executeQuery !== undefined) {
+      return { data: executeQuery };
+    }
+    return { data: null };
+  }
+
+  async deleteUser(id: number) {
+    const executeQuery = await this.userRepository.delete(id);
+    if (executeQuery !== undefined) {
+      return { data: id };
     }
     return { data: null };
   }
