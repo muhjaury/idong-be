@@ -1,37 +1,27 @@
-import { Body, Controller, Get, Post, Res, HttpCode } from '@nestjs/common';
-import { CreateUserDTO } from './dto/create-user.dto';
+import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import { UserDTO, VerifyUserDTO } from './dto/create-user.dto';
 import { UserService } from './user.service';
-import { Response } from 'express';
 
 @Controller('api')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get('user')
-  async findAll(): Promise<object> {
-    const init = await this.userService.findAll();
-    const data = { status: 'SUCCESS', data: init };
-    return data;
-  }
-
-  @Post('user/add')
-  async create(@Body() dto: CreateUserDTO) {
-    const init = await this.userService.create(dto);
-    const data = { status: 'SUCCESS', data: init };
-    return data;
-  }
-
   @HttpCode(200)
-  @Post('verifyUser')
-  async findOne(
-    @Body() dto: CreateUserDTO,
-    @Res({ passthrough: true }) res: Response,
-  ): Promise<object> {
+  @Post('user/verify')
+  async findOne(@Body() dto: VerifyUserDTO) {
     const init = await this.userService.findOne(dto);
-    if (init) {
-      // res.status(200);
-      return { status: 'SUCCESS' };
+    if (init?.name && init?.role) {
+      return { status: 'SUCCESS', data: { name: init.name, role: init.role } };
     }
     return { status: 'INVALID_CREDENTIAL' };
+  }
+
+  @Post('user/registerAdmin')
+  async registerAdmin(@Body() dto: UserDTO) {
+    const init = await this.userService.registerAdmin(dto);
+    if (init?.data) {
+      return { status: 'SUCCESS', data: init.data };
+    }
+    return { status: 'ERROR' };
   }
 }
