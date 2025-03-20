@@ -34,6 +34,15 @@ export class UserController {
     return { status: 'ERROR' };
   }
 
+  @Get('user/fetchGuru')
+  async findAllGuru() {
+    const init = await this.userService.findAllGuru();
+    if (init?.data) {
+      return { status: 'SUCCESS', data: init.data };
+    }
+    return { status: 'ERROR' };
+  }
+
   @Post('user/deleteUser')
   async deleteUser(@Body() id: number) {
     const init = await this.userService.deleteUser(id);

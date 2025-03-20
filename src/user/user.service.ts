@@ -67,6 +67,14 @@ export class UserService {
     return { data: null };
   }
 
+  async findAllGuru() {
+    const executeQuery = await this.userRepository.findBy({ role: 'GURU' });
+    if (executeQuery !== undefined) {
+      return { data: executeQuery };
+    }
+    return { data: null };
+  }
+
   async deleteUser(id: number) {
     const executeQuery = await this.userRepository.delete(id);
     if (executeQuery !== undefined) {
