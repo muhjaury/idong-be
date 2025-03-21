@@ -7,6 +7,6 @@ async function bootstrap() {
     origin: true,
     methods: 'GET,POST',
   });
-  await app.listen(process.env.PORT ?? 3001);
+  await app.listen(process.env.NEXT_PUBLIC_TYPE !== 'prod' ? 3001 : 3000);
 }
 bootstrap();

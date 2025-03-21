@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { decryptData, hashData } from 'src/utils/dataManipulation';
-import { extactData } from 'src/utils/extractData';
+import { decryptData, hashData } from '../utils/dataManipulation';
+import { extactData } from '../utils/extractData';
 import { Repository } from 'typeorm';
 import { UserDTO, VerifyUserDTO } from './dto/create-user.dto';
 import { User } from './user.entity';
