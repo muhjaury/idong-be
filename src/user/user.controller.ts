@@ -1,5 +1,6 @@
 import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
-import { UserDTO, VerifyUserDTO } from './dto/create-user.dto';
+import { DataDTO } from 'src/dto/data.dto';
+import { VerifyUserDTO } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
 @Controller('api')
@@ -17,7 +18,7 @@ export class UserController {
   }
 
   @Post('user/registerUser')
-  async registerUser(@Body() dto: UserDTO) {
+  async registerUser(@Body() dto: DataDTO) {
     const init = await this.userService.registerUser(dto);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };

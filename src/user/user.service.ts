@@ -1,8 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
+import { DataDTO } from 'src/dto/data.dto';
+import { Repository } from 'typeorm';
 import { decryptData, hashData } from '../utils/dataManipulation';
 import { extactData } from '../utils/extractData';
-import { Repository } from 'typeorm';
-import { UserDTO, VerifyUserDTO } from './dto/create-user.dto';
+import { VerifyUserDTO } from './dto/create-user.dto';
 import { User } from './user.entity';
 
 @Injectable()
@@ -12,14 +13,10 @@ export class UserService {
     private userRepository: Repository<User>,
   ) {}
 
-  // Example
+  // Create/Insert Example
   // async create(dto: CreateUserDTO) {
   //   const init = this.userRepository.create(dto);
   //   return await this.userRepository.save(init);
-  // }
-
-  // async remove(id: number): Promise<void> {
-  //   await this.userRepository.delete(id);
   // }
 
   findAll(): Promise<User[]> {
@@ -39,7 +36,7 @@ export class UserService {
     return null;
   }
 
-  async registerUser(dto: UserDTO) {
+  async registerUser(dto: DataDTO) {
     const data = extactData(dto);
     const name = decryptData(data.name);
     const email = decryptData(data.email);

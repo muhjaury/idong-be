@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
+import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
-import { SchoolProfileDTO } from './dto/schoolProfile.dto';
 import { SchoolProfile } from './schoolProfile.entity';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class SchoolProfileService {
     return this.schoolProfileRepository.find();
   }
 
-  async registerSchoolProfile(dto: SchoolProfileDTO) {
+  async registerSchoolProfile(dto: DataDTO) {
     const data = extactData(dto);
 
     const principleName = data.principleName;

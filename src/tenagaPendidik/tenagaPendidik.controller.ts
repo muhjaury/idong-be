@@ -1,12 +1,12 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { DataDTO } from '../dto/data.dto';
-import { SchoolProfileService } from './schoolProfile.service';
+import { TenagaPendidikService } from './tenagaPendidik.service';
 
 @Controller('api')
-export class SchoolProfileController {
-  constructor(private readonly profileService: SchoolProfileService) {}
+export class TenagaPendidikController {
+  constructor(private readonly profileService: TenagaPendidikService) {}
 
-  @Get('fetchSchoolProfile')
+  @Get('tenagaPendidik/fetch')
   async findAllAdmin() {
     const init = await this.profileService.findAll();
     if (init) {
@@ -15,18 +15,18 @@ export class SchoolProfileController {
     return { status: 'ERROR' };
   }
 
-  @Post('registerSchoolProfile')
-  async registerSchoolProfile(@Body() dto: DataDTO) {
-    const init = await this.profileService.registerSchoolProfile(dto);
+  @Post('tenagaPendidik/register')
+  async register(@Body() dto: DataDTO) {
+    const init = await this.profileService.register(dto);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }
     return { status: 'ERROR' };
   }
 
-  @Post('deleteSchoolProfile')
-  async deleteSchoolProfile(@Body() id: number) {
-    const init = await this.profileService.deleteSchoolProfile(id);
+  @Post('tenagaPendidik/delete')
+  async delete(@Body() id: number) {
+    const init = await this.profileService.delete(id);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }
