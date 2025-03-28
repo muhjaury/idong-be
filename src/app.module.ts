@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { SchoolProfileModule } from './schoolProfile/schoolProfile.module';
 import { SiswaModule } from './siswa/siswa.module';
+import { TenagaKependidikanModule } from './tenagaKependidikan/tenagaKependidikan.module';
 import { TenagaPendidikModule } from './tenagaPendidik/tenagaPendidik.module';
 import { UserModule } from './user/user.module';
 
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
     UserModule,
     SchoolProfileModule,
     TenagaPendidikModule,
+    TenagaKependidikanModule,
   ],
   controllers: [AppController],
   providers: [AppService],
