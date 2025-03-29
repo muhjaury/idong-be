@@ -1,32 +1,34 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { DataDTO } from '../dto/data.dto';
-import { TenagaPendidikService } from './tenagaPendidik.service';
+import { SaranaPrasaranaService } from './saranaPrasarana.service';
 
 @Controller('api')
-export class TenagaPendidikController {
-  constructor(private readonly tenagaPendidikService: TenagaPendidikService) {}
+export class SaranaPrasaranaController {
+  constructor(
+    private readonly saranaPrasaranaService: SaranaPrasaranaService,
+  ) {}
 
-  @Get('tenagaPendidik/fetch')
+  @Get('saranaPrasarana/fetch')
   async findAllAdmin() {
-    const init = await this.tenagaPendidikService.findAll();
+    const init = await this.saranaPrasaranaService.findAll();
     if (init) {
       return { status: 'SUCCESS', data: init };
     }
     return { status: 'ERROR' };
   }
 
-  @Post('tenagaPendidik/register')
+  @Post('saranaPrasarana/register')
   async register(@Body() dto: DataDTO) {
-    const init = await this.tenagaPendidikService.register(dto);
+    const init = await this.saranaPrasaranaService.register(dto);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }
     return { status: 'ERROR' };
   }
 
-  @Post('tenagaPendidik/delete')
+  @Post('saranaPrasarana/delete')
   async delete(@Body() id: number) {
-    const init = await this.tenagaPendidikService.delete(id);
+    const init = await this.saranaPrasaranaService.delete(id);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }

@@ -4,11 +4,13 @@ import { TenagaKependidikanService } from './tenagaKependidikan.service';
 
 @Controller('api')
 export class TenagaKependidikanController {
-  constructor(private readonly profileService: TenagaKependidikanService) {}
+  constructor(
+    private readonly tenagaKependidikanService: TenagaKependidikanService,
+  ) {}
 
   @Get('tenagaKependidikan/fetch')
   async findAllAdmin() {
-    const init = await this.profileService.findAll();
+    const init = await this.tenagaKependidikanService.findAll();
     if (init) {
       return { status: 'SUCCESS', data: init };
     }
@@ -17,7 +19,7 @@ export class TenagaKependidikanController {
 
   @Post('tenagaKependidikan/register')
   async register(@Body() dto: DataDTO) {
-    const init = await this.profileService.register(dto);
+    const init = await this.tenagaKependidikanService.register(dto);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }
@@ -26,7 +28,7 @@ export class TenagaKependidikanController {
 
   @Post('tenagaKependidikan/delete')
   async delete(@Body() id: number) {
-    const init = await this.profileService.delete(id);
+    const init = await this.tenagaKependidikanService.delete(id);
     if (init?.data) {
       return { status: 'SUCCESS', data: init.data };
     }
