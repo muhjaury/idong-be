@@ -18,6 +18,7 @@ export class SchoolProfileService {
   async registerSchoolProfile(dto: DataDTO) {
     const data = extactData(dto);
 
+    const id = data?.id;
     const principleName = data.principleName;
     const principleFile = data.principleFile;
     const principleGreeting = data.principleGreeting;
@@ -25,10 +26,7 @@ export class SchoolProfileService {
     const orgStructureFile = data.orgStructureFile;
     const academicCalenderFile = data.academicCalenderFile;
 
-    const selectQuery = 'SELECT * FROM school_profile';
-    const executeSelectQuery =
-      await this.schoolProfileRepository.query(selectQuery);
-    if (executeSelectQuery.length > 0) {
+    if (id) {
       const updateQuery = `UPDATE school_profile 
                             SET principleName="${principleName}",
                             principleFile="${principleFile}",
@@ -36,7 +34,7 @@ export class SchoolProfileService {
                             visionMissionFile="${visionMissionFile}",
                             orgStructureFile="${orgStructureFile}",
                             academicCalenderFile="${academicCalenderFile}" 
-                            WHERE id=${executeSelectQuery[0].id}`;
+                            WHERE id=${id}`;
       const executeUpdateQuery =
         await this.schoolProfileRepository.query(updateQuery);
       if (executeUpdateQuery !== undefined) {

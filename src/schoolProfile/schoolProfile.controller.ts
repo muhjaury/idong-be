@@ -6,7 +6,7 @@ import { SchoolProfileService } from './schoolProfile.service';
 export class SchoolProfileController {
   constructor(private readonly schoolProfileService: SchoolProfileService) {}
 
-  @Get('fetchSchoolProfile')
+  @Get('schoolProfile/fetch')
   async findAllAdmin() {
     const init = await this.schoolProfileService.findAll();
     if (init) {
@@ -15,7 +15,7 @@ export class SchoolProfileController {
     return { status: 'ERROR' };
   }
 
-  @Post('registerSchoolProfile')
+  @Post('schoolProfile/register')
   async registerSchoolProfile(@Body() dto: DataDTO) {
     const init = await this.schoolProfileService.registerSchoolProfile(dto);
     if (init?.data) {
@@ -24,7 +24,7 @@ export class SchoolProfileController {
     return { status: 'ERROR' };
   }
 
-  @Post('deleteSchoolProfile')
+  @Post('schoolProfile/delete')
   async deleteSchoolProfile(@Body() id: number) {
     const init = await this.schoolProfileService.deleteSchoolProfile(id);
     if (init?.data) {
