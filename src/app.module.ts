@@ -11,6 +11,7 @@ import { SchoolProfileModule } from './schoolProfile/schoolProfile.module';
 import { SiswaModule } from './siswa/siswa.module';
 import { TenagaKependidikanModule } from './tenagaKependidikan/tenagaKependidikan.module';
 import { TenagaPendidikModule } from './tenagaPendidik/tenagaPendidik.module';
+import { TkjModule } from './tkj/tkj.module';
 import { UserModule } from './user/user.module';
 
 @Module({
@@ -25,6 +26,7 @@ import { UserModule } from './user/user.module';
     SiswaModule,
     TenagaKependidikanModule,
     TenagaPendidikModule,
+    TkjModule,
     UserModule,
   ],
   controllers: [AppController],
