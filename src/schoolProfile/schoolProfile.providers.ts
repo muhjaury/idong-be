@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { SchoolProfile } from './schoolProfile.entity';
 
-export const profileProviders = [
+export const schoolProfileProviders = [
   {
     provide: 'USER_REPOSITORY',
     useFactory: (dataSource: DataSource) =>

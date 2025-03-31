@@ -1,11 +1,11 @@
 import { DataSource } from 'typeorm';
-import { PetaStatusKontak } from './petaStatusKontak.entity';
+import { PortalBerita } from './portalBerita.entity';
 
-export const petaStatusKontakProviders = [
+export const portalBeritaProviders = [
   {
     provide: 'USER_REPOSITORY',
     useFactory: (dataSource: DataSource) =>
-      dataSource.getRepository(PetaStatusKontak),
+      dataSource.getRepository(PortalBerita),
     inject: ['DATA_SOURCE'],
   },
 ];

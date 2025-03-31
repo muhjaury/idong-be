@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { PetaStatusKontakModule } from './petaStatusKontak/petaStatusKontak.module';
+import { PortalBeritaModule } from './portalBerita/portalBerita.module';
 import { SaranaPrasaranaModule } from './saranaPrasarana/saranaPrasarana.module';
 import { SchoolProfileModule } from './schoolProfile/schoolProfile.module';
 import { SiswaModule } from './siswa/siswa.module';
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
   imports: [
     DatabaseModule,
     PetaStatusKontakModule,
+    PortalBeritaModule,
     SaranaPrasaranaModule,
     SchoolProfileModule,
     SiswaModule,
