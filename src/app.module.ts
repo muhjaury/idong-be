@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ArsipModule } from './arsip/arsip.module';
 import { DatabaseModule } from './database/database.module';
 import { GaleriModule } from './galeri/galeri.module';
 import { PetaStatusKontakModule } from './petaStatusKontak/petaStatusKontak.module';
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
+    ArsipModule,
     DatabaseModule,
     GaleriModule,
     PetaStatusKontakModule,
