@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
+import { GaleriModule } from './galeri/galeri.module';
 import { PetaStatusKontakModule } from './petaStatusKontak/petaStatusKontak.module';
 import { PortalBeritaModule } from './portalBerita/portalBerita.module';
 import { SaranaPrasaranaModule } from './saranaPrasarana/saranaPrasarana.module';
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
 @Module({
   imports: [
     DatabaseModule,
+    GaleriModule,
     PetaStatusKontakModule,
     PortalBeritaModule,
     SaranaPrasaranaModule,
