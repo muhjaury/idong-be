@@ -11,6 +11,7 @@ import { PortalBeritaModule } from './portalBerita/portalBerita.module';
 import { SaranaPrasaranaModule } from './saranaPrasarana/saranaPrasarana.module';
 import { SchoolProfileModule } from './schoolProfile/schoolProfile.module';
 import { SiswaModule } from './siswa/siswa.module';
+import { TataTertibModule } from './tataTertib/tataTertib.module';
 import { TbsmModule } from './tbsm/tbsm.module';
 import { TenagaKependidikanModule } from './tenagaKependidikan/tenagaKependidikan.module';
 import { TenagaPendidikModule } from './tenagaPendidik/tenagaPendidik.module';
@@ -30,6 +31,7 @@ import { UserModule } from './user/user.module';
     SaranaPrasaranaModule,
     SchoolProfileModule,
     SiswaModule,
+    TataTertibModule,
     TbsmModule,
     TenagaKependidikanModule,
     TenagaPendidikModule,
