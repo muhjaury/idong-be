@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ArsipModule } from './arsip/arsip.module';
 import { AtphModule } from './atph/atph.module';
+import { DaftarHadirModule } from './daftarHadir/daftarHadir.module';
 import { DatabaseModule } from './database/database.module';
 import { DpibModule } from './dpib/dpib.module';
 import { GaleriModule } from './galeri/galeri.module';
@@ -23,6 +24,7 @@ import { UserModule } from './user/user.module';
   imports: [
     ArsipModule,
     AtphModule,
+    DaftarHadirModule,
     DatabaseModule,
     DpibModule,
     GaleriModule,
