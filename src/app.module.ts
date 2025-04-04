@@ -7,6 +7,7 @@ import { DaftarHadirModule } from './daftarHadir/daftarHadir.module';
 import { DatabaseModule } from './database/database.module';
 import { DpibModule } from './dpib/dpib.module';
 import { GaleriModule } from './galeri/galeri.module';
+import { PelanggaranModule } from './pelanggaran/pelanggaran.module';
 import { PetaStatusKontakModule } from './petaStatusKontak/petaStatusKontak.module';
 import { PortalBeritaModule } from './portalBerita/portalBerita.module';
 import { SaranaPrasaranaModule } from './saranaPrasarana/saranaPrasarana.module';
@@ -28,6 +29,7 @@ import { UserModule } from './user/user.module';
     DatabaseModule,
     DpibModule,
     GaleriModule,
+    PelanggaranModule,
     PetaStatusKontakModule,
     PortalBeritaModule,
     SaranaPrasaranaModule,
