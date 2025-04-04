@@ -6,11 +6,17 @@ export class Siswa {
   id: number;
 
   @Column()
-  nama: string;
-
-  @Column({ length: 10 })
-  nisn: string;
+  kelas: string;
 
   @Column()
-  kelas: string;
+  nis: string;
+
+  @Column()
+  nama: string;
+
+  @Column()
+  jenisKelamin: string;
+
+  @Column()
+  alamat: string;
 }
