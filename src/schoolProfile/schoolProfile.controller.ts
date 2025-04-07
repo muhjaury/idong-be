@@ -41,4 +41,31 @@ export class SchoolProfileController {
     }
     return { status: 'ERROR' };
   }
+
+  @Get('strukturOrganisasi/fetch')
+  async strukturOrganisasi() {
+    const init = await this.schoolProfileService.strukturOrganisasi();
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
+
+  @Get('visiMisi/fetch')
+  async visiMisi() {
+    const init = await this.schoolProfileService.visiMisi();
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
+
+  @Get('kalenderAkademik/fetch')
+  async kalenderAkademik() {
+    const init = await this.schoolProfileService.kalenderAkademik();
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
 }
