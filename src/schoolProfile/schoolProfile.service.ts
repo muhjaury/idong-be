@@ -72,4 +72,28 @@ export class SchoolProfileService {
       return executeQuery;
     }
   }
+
+  async strukturOrganisasi() {
+    const query = 'SELECT `orgStructureFile` FROM school_profile;';
+    const executeQuery = await this.schoolProfileRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
+
+  async visiMisi() {
+    const query = 'SELECT `visionMissionFile` FROM school_profile;';
+    const executeQuery = await this.schoolProfileRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
+
+  async kalenderAkademik() {
+    const query = 'SELECT `academicCalenderFile` FROM school_profile;';
+    const executeQuery = await this.schoolProfileRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
 }
