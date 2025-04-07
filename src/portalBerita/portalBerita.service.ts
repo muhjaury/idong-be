@@ -57,4 +57,12 @@ export class PortalBeritaService {
     }
     return { data: null };
   }
+
+  async berita() {
+    const query = 'SELECT `judul`, `deskripsi`, `foto` FROM portal_berita;';
+    const executeQuery = await this.portalBeritaRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
 }

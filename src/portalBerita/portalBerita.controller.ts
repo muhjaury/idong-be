@@ -32,4 +32,13 @@ export class PortalBeritaController {
     }
     return { status: 'ERROR' };
   }
+
+  @Get('beranda/berita')
+  async kepalaSekolah() {
+    const init = await this.portalBeritaService.berita();
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
 }
