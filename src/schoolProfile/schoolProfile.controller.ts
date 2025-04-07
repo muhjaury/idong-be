@@ -32,4 +32,13 @@ export class SchoolProfileController {
     }
     return { status: 'ERROR' };
   }
+
+  @Get('beranda/kepalaSekolah')
+  async kepalaSekolah() {
+    const init = await this.schoolProfileService.kepalaSekolah();
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
 }

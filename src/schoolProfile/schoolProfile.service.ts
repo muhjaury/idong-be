@@ -63,4 +63,13 @@ export class SchoolProfileService {
     }
     return { data: null };
   }
+
+  async kepalaSekolah() {
+    const query =
+      'SELECT `principleName`, `principleFile`, `principleGreeting` FROM school_profile;';
+    const executeQuery = await this.schoolProfileRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
 }
