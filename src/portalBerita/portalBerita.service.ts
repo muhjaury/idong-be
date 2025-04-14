@@ -60,7 +60,7 @@ export class PortalBeritaService {
 
   async berita() {
     const query =
-      'SELECT `judul`, `deskripsi`, `foto` FROM portal_berita ORDER BY `id` DESC;';
+      'SELECT `judul`, `deskripsi`, `foto` FROM portal_berita ORDER BY `id` DESC LIMIT 3;';
     const executeQuery = await this.portalBeritaRepository.query(query);
     if (executeQuery !== undefined) {
       return executeQuery;
