@@ -32,4 +32,13 @@ export class DaftarHadirController {
     }
     return { status: 'ERROR' };
   }
+
+  @Post('daftarHadir/fetchData')
+  async daftarHadir(@Body() dto: DataDTO) {
+    const init = await this.daftarHadirService.daftarHadir(dto);
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
 }

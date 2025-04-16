@@ -59,4 +59,18 @@ export class DaftarHadirService {
     }
     return { data: null };
   }
+
+  async daftarHadir(dto: DataDTO) {
+    const data = extactData(dto);
+
+    const jurusan = data.jurusan;
+    const kelas = data.kelas;
+    const tahunAjar = data.tahunAjar;
+
+    const query = `SELECT * FROM daftar_hadir WHERE jurusan="${jurusan}" AND kelas="${kelas}" AND tahunAjar="${tahunAjar}";`;
+    const executeQuery = await this.daftarHadirRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
 }
