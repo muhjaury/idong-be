@@ -55,4 +55,16 @@ export class PelanggaranService {
     }
     return { data: null };
   }
+
+  async pelanggaran(dto: DataDTO) {
+    const data = extactData(dto);
+
+    const nis = data.nis;
+
+    const query = `SELECT * FROM pelanggaran WHERE nis="${nis}";`;
+    const executeQuery = await this.pelanggaranRepository.query(query);
+    if (executeQuery !== undefined) {
+      return executeQuery;
+    }
+  }
 }

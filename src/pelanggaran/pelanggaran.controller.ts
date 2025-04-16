@@ -32,4 +32,13 @@ export class PelanggaranController {
     }
     return { status: 'ERROR' };
   }
+
+  @Post('pelanggaran/fetchData')
+  async daftarHadir(@Body() dto: DataDTO) {
+    const init = await this.pelanggaranService.pelanggaran(dto);
+    if (init) {
+      return { status: 'SUCCESS', data: init };
+    }
+    return { status: 'ERROR' };
+  }
 }
