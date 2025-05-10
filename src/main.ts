@@ -6,10 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: true,
-    methods: 'GET,POST',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   });
   app.use(bodyParser.json({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-  await app.listen(process.env.NEXT_PUBLIC_TYPE !== 'prod' ? 3001 : 3000);
+  await app.listen(3001);
 }
 bootstrap();
