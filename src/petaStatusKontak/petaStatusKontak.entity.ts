@@ -20,6 +20,12 @@ export class PetaStatusKontak {
   @Column()
   facebook: string;
 
+  @Column()
+  youtube: string;
+
   @Column('longtext')
   maps: string;
+
+  @Column('longtext')
+  pendaftaranSiswaBaru: string;
 }

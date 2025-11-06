@@ -24,7 +24,9 @@ export class PetaStatusKontakService {
     const email = data.email;
     const instagram = data.instagram;
     const facebook = data.facebook;
+    const youtube = data.youtube;
     const maps = data.maps;
+    const pendaftaranSiswaBaru = data.pendaftaranSiswaBaru;
 
     if (id) {
       const updateQuery = `UPDATE peta_status_kontak 
@@ -33,6 +35,8 @@ export class PetaStatusKontakService {
                             email="${email}",
                             instagram="${instagram}",
                             facebook="${facebook}",
+                            youtube="${youtube}",
+                            pendaftaranSiswaBaru="${pendaftaranSiswaBaru}",
                             maps="${maps}" 
                             WHERE id=${id}`;
       const executeUpdateQuery =
@@ -42,8 +46,8 @@ export class PetaStatusKontakService {
       }
     } else {
       const insertQuery =
-        'INSERT INTO peta_status_kontak ( `lokasi`, `nomorTelepon`, `email`, `instagram`, `facebook`, `maps`) VALUES (' +
-        `"${lokasi}","${nomorTelepon}","${email}","${instagram}","${facebook}","${maps}"` +
+        'INSERT INTO peta_status_kontak ( `lokasi`, `nomorTelepon`, `email`, `instagram`, `facebook`, `youtube`, `pendaftaranSiswaBaru`, `maps`) VALUES (' +
+        `"${lokasi}","${nomorTelepon}","${email}","${instagram}","${facebook}","${youtube}","${pendaftaranSiswaBaru}","${maps}"` +
         ');';
 
       const executeInsertQuery =
