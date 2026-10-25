@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Galeri } from './galeri.entity';
 
-@Injectable()
 export class GaleriService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private galeriRepository: Repository<Galeri>,
-  ) {}
+  constructor(private galeriRepository: Repository<Galeri>) {}
 
   findAll() {
     return this.galeriRepository.find();

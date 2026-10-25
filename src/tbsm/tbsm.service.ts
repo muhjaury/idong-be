@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Tbsm } from './tbsm.entity';
 
-@Injectable()
 export class TbsmService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private tbsmRepository: Repository<Tbsm>,
-  ) {}
+  constructor(private tbsmRepository: Repository<Tbsm>) {}
 
   findAll() {
     return this.tbsmRepository.find();

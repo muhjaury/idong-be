@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Siswa } from './siswa.entity';
 
-@Injectable()
 export class SiswaService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private siswaRepository: Repository<Siswa>,
-  ) {}
+  constructor(private siswaRepository: Repository<Siswa>) {}
 
   findAll() {
     return this.siswaRepository.find();

@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Atph } from './atph.entity';
 
-@Injectable()
 export class AtphService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private atphRepository: Repository<Atph>,
-  ) {}
+  constructor(private atphRepository: Repository<Atph>) {}
 
   findAll() {
     return this.atphRepository.find();

@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { SchoolProfile } from './schoolProfile.entity';
 
-@Injectable()
 export class SchoolProfileService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private schoolProfileRepository: Repository<SchoolProfile>,
-  ) {}
+  constructor(private schoolProfileRepository: Repository<SchoolProfile>) {}
 
   findAll() {
     return this.schoolProfileRepository.find();

@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { DaftarHadir } from './daftarHadir.entity';
 
-@Injectable()
 export class DaftarHadirService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private daftarHadirRepository: Repository<DaftarHadir>,
-  ) {}
+  constructor(private daftarHadirRepository: Repository<DaftarHadir>) {}
 
   findAll() {
     return this.daftarHadirRepository.find();

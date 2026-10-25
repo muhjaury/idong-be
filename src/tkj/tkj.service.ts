@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Tkj } from './tkj.entity';
 
-@Injectable()
 export class TkjService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private tkjRepository: Repository<Tkj>,
-  ) {}
+  constructor(private tkjRepository: Repository<Tkj>) {}
 
   findAll() {
     return this.tkjRepository.find();

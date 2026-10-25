@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Pelanggaran } from './pelanggaran.entity';
 
-@Injectable()
 export class PelanggaranService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private pelanggaranRepository: Repository<Pelanggaran>,
-  ) {}
+  constructor(private pelanggaranRepository: Repository<Pelanggaran>) {}
 
   findAll() {
     return this.pelanggaranRepository.find();

@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Dpib } from './dpib.entity';
 
-@Injectable()
 export class DpibService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private dpibRepository: Repository<Dpib>,
-  ) {}
+  constructor(private dpibRepository: Repository<Dpib>) {}
 
   findAll() {
     return this.dpibRepository.find();

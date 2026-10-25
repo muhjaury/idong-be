@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { Arsip } from './arsip.entity';
 
-@Injectable()
 export class ArsipService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private arsipRepository: Repository<Arsip>,
-  ) {}
+  constructor(private arsipRepository: Repository<Arsip>) {}
 
   findAll() {
     return this.arsipRepository.find();

@@ -1,13 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { PetaStatusKontak } from './petaStatusKontak.entity';
 
-@Injectable()
 export class PetaStatusKontakService {
   constructor(
-    @Inject('USER_REPOSITORY')
     private petaStatusKontakRepository: Repository<PetaStatusKontak>,
   ) {}
 

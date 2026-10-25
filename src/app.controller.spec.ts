@@ -1,22 +1,30 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { createApp } from './app';
+import * as request from 'supertest';
+import { DataSource } from 'typeorm';
+import { createApiRouter } from './routes';
 
-describe('AppController', () => {
-  let appController: AppController;
-
-  beforeEach(async () => {
-    const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
-    }).compile();
-
-    appController = app.get<AppController>(AppController);
+describe('Express app', () => {
+  it('returns the API name at the root route', async () => {
+    await request(createApp()).get('/').expect(200).expect('SMKS API');
   });
 
-  describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
-    });
+  it('returns the API name under the hosting subpath', async () => {
+    await request(createApp()).get('/smks-api/').expect(200).expect('SMKS API');
+  });
+
+  it('serves the archive fetch route through the API router', async () => {
+    const dataSource = {
+      getRepository: () => ({ find: async () => [] }),
+    } as unknown as DataSource;
+
+    await request(createApp(createApiRouter(dataSource)))
+      .get('/api/arsip/fetch')
+      .expect(200)
+      .expect({ status: 'SUCCESS', data: [] });
+
+    await request(createApp(createApiRouter(dataSource)))
+      .get('/smks-api/api/arsip/fetch')
+      .expect(200)
+      .expect({ status: 'SUCCESS', data: [] });
   });
 });

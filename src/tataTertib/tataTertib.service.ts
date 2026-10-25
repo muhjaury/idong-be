@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { TataTertib } from './tataTertib.entity';
 
-@Injectable()
 export class TataTertibService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private tataTertibRepository: Repository<TataTertib>,
-  ) {}
+  constructor(private tataTertibRepository: Repository<TataTertib>) {}
 
   findAll() {
     return this.tataTertibRepository.find();

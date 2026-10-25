@@ -1,17 +1,12 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { DataDTO } from 'src/dto/data.dto';
+import { DataDTO } from '../dto/data.dto';
 import { Repository } from 'typeorm';
 import { decryptData, hashData } from '../utils/dataManipulation';
 import { extactData } from '../utils/extractData';
 import { VerifyUserDTO } from './dto/create-user.dto';
 import { User } from './user.entity';
 
-@Injectable()
 export class UserService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private userRepository: Repository<User>,
-  ) {}
+  constructor(private userRepository: Repository<User>) {}
 
   // Create/Insert Example
   // async create(dto: CreateUserDTO) {

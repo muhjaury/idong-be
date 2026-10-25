@@ -1,15 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { DataDTO } from '../dto/data.dto';
 import { extactData } from '../utils/extractData';
 import { PortalBerita } from './portalBerita.entity';
 
-@Injectable()
 export class PortalBeritaService {
-  constructor(
-    @Inject('USER_REPOSITORY')
-    private portalBeritaRepository: Repository<PortalBerita>,
-  ) {}
+  constructor(private portalBeritaRepository: Repository<PortalBerita>) {}
 
   findAll() {
     return this.portalBeritaRepository.find();
